@@ -2,20 +2,21 @@
   "Infrastructure Planning": {
     "How are EV charging station locations chosen?": [
       [
-        "site",
+        "identify",
         "location",
         "placement",
         "select",
-        "criteria",
-        "identify"
+        "site",
+        "criteria"
       ],
       [
-        "access",
-        "proximity",
-        "demand",
-        "traffic",
+        "amenities",
         "corridor",
-        "amenities"
+        "demand",
+        "proximity",
+        "tarrifs",
+        "traffic",
+        "access"
       ]
     ],
     "Does the plan address rural vs urban placement?": [
@@ -60,51 +61,20 @@
       ]
     ]
   },
-  "Workforce Development": {
-    "What workforce development strategies are included?": [
-      [
-        "workforce",
-        "training",
-        "education",
-        "skill",
-        "apprentice"
-      ],
-      [
-        "hiring",
-        "contractors",
-        "workers",
-        "labor"
-      ]
-    ],
-    "Are partnerships mentioned for workforce support?": [
-      [
-        "partnership",
-        "collaborate",
-        "stakeholders",
-        "industry"
-      ],
-      [
-        "training",
-        "education",
-        "schools",
-        "institutions"
-      ]
-    ]
-  },
   "Equity and Inclusion": {
     "How does the plan address equity concerns?": [
       [
-        "equity",
         "inclusion",
         "justice",
+        "marginalized",
         "underserved",
-        "marginalized"
+        "equity"
       ],
       [
-        "community",
         "engage",
         "input",
-        "representation"
+        "representation",
+        "community"
       ]
     ],
     "Are disadvantaged or overburdened communities prioritized?": [
@@ -151,21 +121,6 @@
     ]
   },
   "Environmental Considerations": {
-    "Are environmental or climate impacts discussed?": [
-      [
-        "climate",
-        "environment",
-        "greenhouse",
-        "carbon",
-        "emissions"
-      ],
-      [
-        "mitigation",
-        "impact",
-        "sustainability",
-        "resilience"
-      ]
-    ],
     "Is renewable energy integration considered?": [
       [
         "solar",

@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtGui
+from PyQt5 import QtWidgets, QtGui, QtCore
 import os
 from logic.search_engine import search_pdf_for_terms
 from logic.term_loader import load_terms
@@ -59,8 +59,14 @@ class MainWindow(QtWidgets.QMainWindow):
             self.term_list.addItems(self.terms[category].keys())
 
     def open_terms_editor(self):
-        self.editor = TermEditorWindow("data/terms.json")
-        self.editor.show()
+        current_cat = self.category_combo.currentText()
+        editor = TermEditorWindow("data/terms.json", start_category=current_cat)
+        editor.exec_()
+        new_cat = editor.get_current_category()
+        self.load_terms_file("data/terms.json")
+        if new_cat in self.terms:
+            index = self.category_combo.findText(new_cat)
+            self.category_combo.setCurrentIndex(index)
 
     def run_search(self):
         if not self.selected_file:
