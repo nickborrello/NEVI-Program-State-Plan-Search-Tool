@@ -1,0 +1,184 @@
+{
+  "Infrastructure Planning": {
+    "How are EV charging station locations chosen?": [
+      [
+        "site",
+        "location",
+        "placement",
+        "select",
+        "criteria",
+        "identify"
+      ],
+      [
+        "access",
+        "proximity",
+        "demand",
+        "traffic",
+        "corridor",
+        "amenities"
+      ]
+    ],
+    "Does the plan address rural vs urban placement?": [
+      [
+        "rural",
+        "remote",
+        "underserved"
+      ],
+      [
+        "urban",
+        "city",
+        "municipal"
+      ]
+    ]
+  },
+  "Accessibility": {
+    "How is accessibility ensured for people with disabilities?": [
+      [
+        "ADA",
+        "disabilities",
+        "accessible",
+        "accessibility",
+        "barriers"
+      ],
+      [
+        "charging",
+        "stations",
+        "infrastructure"
+      ]
+    ],
+    "Are language or cultural access barriers addressed?": [
+      [
+        "language",
+        "translation",
+        "multilingual",
+        "interpret"
+      ],
+      [
+        "equity",
+        "community",
+        "outreach"
+      ]
+    ]
+  },
+  "Workforce Development": {
+    "What workforce development strategies are included?": [
+      [
+        "workforce",
+        "training",
+        "education",
+        "skill",
+        "apprentice"
+      ],
+      [
+        "hiring",
+        "contractors",
+        "workers",
+        "labor"
+      ]
+    ],
+    "Are partnerships mentioned for workforce support?": [
+      [
+        "partnership",
+        "collaborate",
+        "stakeholders",
+        "industry"
+      ],
+      [
+        "training",
+        "education",
+        "schools",
+        "institutions"
+      ]
+    ]
+  },
+  "Equity and Inclusion": {
+    "How does the plan address equity concerns?": [
+      [
+        "equity",
+        "inclusion",
+        "justice",
+        "underserved",
+        "marginalized"
+      ],
+      [
+        "community",
+        "engage",
+        "input",
+        "representation"
+      ]
+    ],
+    "Are disadvantaged or overburdened communities prioritized?": [
+      [
+        "disadvantaged",
+        "overburdened",
+        "low-income",
+        "environmental justice",
+        "tribal"
+      ],
+      [
+        "priority",
+        "target",
+        "focus"
+      ]
+    ]
+  },
+  "Maintenance and Reliability": {
+    "What are the reliability or uptime goals for chargers?": [
+      [
+        "reliable",
+        "uptime",
+        "dependable",
+        "functioning",
+        "operation"
+      ],
+      [
+        "chargers",
+        "equipment",
+        "infrastructure"
+      ]
+    ],
+    "How will maintenance be handled?": [
+      [
+        "maintenance",
+        "repair",
+        "service"
+      ],
+      [
+        "contract",
+        "developer",
+        "agreement"
+      ]
+    ]
+  },
+  "Environmental Considerations": {
+    "Are environmental or climate impacts discussed?": [
+      [
+        "climate",
+        "environment",
+        "greenhouse",
+        "carbon",
+        "emissions"
+      ],
+      [
+        "mitigation",
+        "impact",
+        "sustainability",
+        "resilience"
+      ]
+    ],
+    "Is renewable energy integration considered?": [
+      [
+        "solar",
+        "wind",
+        "renewable",
+        "green energy",
+        "sustainable"
+      ],
+      [
+        "charging",
+        "infrastructure",
+        "stations"
+      ]
+    ]
+  }
+}
