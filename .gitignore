@@ -39,3 +39,18 @@ Thumbs.db
 *.app
 *.AppImage
 *.deb
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editor/OS files
+*.swp
+.DS_Store
+.idea/
+.vscode/
