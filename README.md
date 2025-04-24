@@ -1,110 +1,107 @@
-# Universal PDF Keyword Search Tool
+# NEVI Plan Keyword Search Tool
 
-A Python-based tool to search for structured keyword patterns in any PDF document — with visual highlights, page navigation, and full keyword management.
+This tool is designed to help analysts and researchers **search through state NEVI plans** for structured, consistent responses to critical questions. It allows users to identify where certain phrases, terms, or topics appear in all 52 state NEVI PDF submissions using structured, logic-based keyword matching.
 
-Originally built to explore NEVI state plans, now generalized for any use case involving keyword analysis in PDFs.
+Built with PyQt5 and bundled for Windows and Linux using PyInstaller.
 
 ---
 
-## 🚀 Features
+## 📄 What It Does
 
-- Load any PDF file
-- Structured keyword matching (multi-group logic)
-- Whole-word and case-insensitive search (no false positives)
-- Highlighted reader view with page-by-page navigation
-- JSON-based keyword sets (organized by category and question)
-- Term editor for live editing and saving new keyword logic
+- Load any individual state NEVI plan (PDF)
+- Select from preset **equity**, **buildout**, and **maintenance** categories
+- Each question contains sets of semantically related terms
+- A page is matched if it contains **at least one term from each group**
+- View matched pages with keywords **highlighted** in a scrollable reader
+- Terms can be **edited directly** using the built-in JSON editor interface
 
 ---
 
 ## 🧱 Project Structure
 
 ```
-NEVI-Program-State-Plan-Search-Tool/
-├── main.py                        # Entry point
-├── gui/
-│   ├── main_window.py             # Main application UI
-│   ├── reader_window.py           # PDF viewer with term highlighting
-│   └── term_editor_window.py      # UI for editing term groups
-├── logic/
-│   ├── search_engine.py           # Keyword match engine using whole-word regex
-│   └── term_loader.py             # Loads and parses terms.json
+.
+├── main.py                        # App entry point
 ├── data/
-│   └── terms.json                 # Sample term structure (editable)
+│   └── terms.json                # Preset questions and keyword groups
+├── assets/
+│   └── wpi_logo.ico              # App icon
+├── gui/
+│   ├── main_window.py            # Main GUI window
+│   ├── reader_window.py          # PDF reader with highlights
+│   └── term_editor_window.py     # Editor for modifying keyword sets
+├── logic/
+│   ├── search_engine.py          # Keyword match logic
+│   ├── term_loader.py            # Load files compatibly with PyInstaller
+│   └── settings.py               # (Reserved for future use)
+└── .github/workflows/windows-build.yml   # GitHub Actions for automatic .exe builds
 ```
 
 ---
 
-## ⚙️ Installation
+## 🔍 Example Question
 
-### Requirements
+> **"How does the state identify disadvantaged communities?"**
 
-- Python 3.7+
-- PyQt5
-- pypdf
+```json
+[
+  ["underserved", "disadvantaged", "DAC", "marginalized"],
+  ["define", "identify", "locate"],
+  ["engagement", "collaboration", "mapping tool"]
+]
+```
 
-Install dependencies:
+This matches if a page contains **one term from each line**.
+
+---
+
+## ⚙️ Installation (Local)
 
 ```bash
 pip install PyQt5 pypdf
-```
-
----
-
-## 🧠 How It Works
-
-### JSON Structure
-
-`terms.json` contains a mapping like:
-
-```json
-{
-  "Category Name": {
-    "Some Question?": [
-      ["group1_term1", "group1_term2"],
-      ["group2_term1", "group2_term2"]
-    ]
-  }
-}
-```
-
-A PDF page matches a question **only if at least one term from each group is found** on the page (AND logic across groups).
-
----
-
-## 📦 Best Practices
-
-- Keep your `terms.json` modular — avoid hardcoding terms into Python.
-- Use the **term editor** to safely update/add categories and questions.
-- Maintain backups of your `terms.json` if editing outside the UI.
-- Stick to **simple lowercase, whole-word terms** for most accurate matching.
-- Use an empty string (`" "`) in a group to make it optional.
-
----
-
-## 🖥️ Running the App
-
-```bash
 python main.py
 ```
 
-1. Load a PDF.
-2. Select a category and question.
-3. Click **Run Search**.
-4. View matching pages in a popup reader with highlighted hits.
+---
+
+## 🏗️ Building the App (Linux)
+
+Use PyInstaller to create a portable binary:
+
+```bash
+pyinstaller --onefile --windowed \
+  --icon=assets/wpi_logo.ico \
+  --add-data=data/terms.json:data \
+  main.py
+```
+
+Output: `dist/main`
 
 ---
 
-## ✅ TODO / Future Features
+## 🚀 Automated Windows Builds via GitHub Actions
 
-- Semantic search with vector embeddings
-- Export matched pages as new annotated PDF
-- Batch processing of PDF folders
-- Plugin hooks for alternate match engines (e.g., fuzzy, AI)
+Create a release tag (`v1.0.0`) and GitHub will:
+- Build a Windows `.exe`
+- Upload it to the release automatically
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
 
 ---
 
-## 🧑‍💻 Author
+## 🧠 Background
 
-Refactored and maintained by @nickborrello  
-Originally built for structured NEVI document analysis.
+This project was originally created as part of a WPI undergraduate research initiative in response to the **National Electric Vehicle Infrastructure (NEVI)** program, a federal effort to accelerate EV adoption.
+
+The goal was to help teams quickly analyze large amounts of state-submitted content using structured keyword-driven search.
+
+---
+
+## ✍️ Authors
+
+Originally developed by @nickborrello  
+Supported by WPI research advisors  
+Maintained and packaged by the research team
