@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# PyInstaller build folders
+build/
+dist/
+*.spec
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# PyQt/Qt temp or log files
+*.log
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*~
+*.bak
+*.tmp
+
+# Data (if user-specific or test-only)
+# data/*.json
+
+# Optionally ignore large binary outputs
+*.exe
+*.app
+*.AppImage
+*.deb
