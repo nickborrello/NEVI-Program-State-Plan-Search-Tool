@@ -23,12 +23,12 @@ jobs:
           pip install pyinstaller PyQt5 pypdf
 
       - name: Build with PyInstaller
-        run: pyinstaller --onefile --windowed --icon=assets/wpi_logo.ico --add-data "data\\terms.json;data" main.py
+        run: pyinstaller --onefile --windowed --name SearchTool --icon=assets/wpi_logo.ico --add-data "data\\terms.json;data" main.py
 
 
       - name: Upload .exe to release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/main.exe
+          files: dist/SearchTool.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
