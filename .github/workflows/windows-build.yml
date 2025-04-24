@@ -1,0 +1,37 @@
+name: Build Windows .exe
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger only on version tags like v1.0.0
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install pyinstaller PyQt5 pypdf
+
+      - name: Build with PyInstaller
+        run: |
+          pyinstaller --onefile --windowed ^
+            --icon=assets/wpi_logo.ico ^
+            --add-data data\\terms.json;data ^
+            main.py
+
+      - name: Upload .exe to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/main.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
