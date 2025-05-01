@@ -1,19 +1,21 @@
 # NEVI Plan Keyword Search Tool
 
-This tool is designed to help analysts and researchers **search through state NEVI plans** for structured, consistent responses to critical questions. It allows users to identify where certain phrases, terms, or topics appear in all 52 state NEVI PDF submissions using structured, logic-based keyword matching.
+[![Sponsored by Atlas Public Policy](https://img.shields.io/badge/Sponsored_by-Atlas_Public_Policy-blue)](https://www.atlaspolicy.com/)
 
-Built with PyQt5 and bundled for Windows and Linux using PyInstaller.
+A Python-based tool to help analysts and researchers search through state NEVI plans for structured answers to key questions. The tool uses logic-based keyword matching to find pages that discuss specific topics in uploaded PDF documents.
+
+Originally developed for a WPI undergraduate research initiative, **sponsored by Atlas Public Policy**.
 
 ---
 
 ## 📄 What It Does
 
-- Load any individual state NEVI plan (PDF)
-- Select from preset **equity**, **buildout**, and **maintenance** categories
-- Each question contains sets of semantically related terms
-- A page is matched if it contains **at least one term from each group**
-- View matched pages with keywords **highlighted** in a scrollable reader
-- Terms can be **edited directly** using the built-in JSON editor interface
+- Load any state NEVI plan (PDF)
+- Choose a category (e.g., Equity, Buildout, Maintenance)
+- Choose a question
+- Search for structured keyword matches
+- View matching pages in a built-in reader with highlights
+- Edit the term sets with an easy-to-use term editor
 
 ---
 
@@ -21,87 +23,85 @@ Built with PyQt5 and bundled for Windows and Linux using PyInstaller.
 
 ```
 .
-├── main.py                        # App entry point
+├── main.py                   # Entry point
 ├── data/
-│   └── terms.json                # Preset questions and keyword groups
+│   └── terms.json             # Questions and keyword groups
 ├── assets/
-│   └── wpi_logo.ico              # App icon
+│   └── wpi_logo.ico           # App icon
 ├── gui/
-│   ├── main_window.py            # Main GUI window
-│   ├── reader_window.py          # PDF reader with highlights
-│   └── term_editor_window.py     # Editor for modifying keyword sets
+│   ├── main_window.py         # Main application UI
+│   ├── reader_window.py       # Highlighted PDF reader
+│   └── term_editor_window.py  # JSON term editor
 ├── logic/
-│   ├── search_engine.py          # Keyword match logic
-│   ├── term_loader.py            # Load files compatibly with PyInstaller
-│   └── settings.py               # (Reserved for future use)
-└── .github/workflows/windows-build.yml   # GitHub Actions for automatic .exe builds
+│   ├── search_engine.py       # Whole-word search engine
+│   ├── term_loader.py         # Resource path handling
+│   └── settings.py            # (reserved for future)
+└── README.md
 ```
 
 ---
 
-## 🔍 Example Question
+## ⚙️ Installation (Run Locally)
 
-> **"How does the state identify disadvantaged communities?"**
+### Requirements
 
-```json
-[
-  ["underserved", "disadvantaged", "DAC", "marginalized"],
-  ["define", "identify", "locate"],
-  ["engagement", "collaboration", "mapping tool"]
-]
-```
+- Python 3.7+
+- PyQt5
+- pypdf
 
-This matches if a page contains **one term from each line**.
-
----
-
-## ⚙️ Installation (Local)
+### Install dependencies:
 
 ```bash
 pip install PyQt5 pypdf
+```
+
+---
+
+## ▶️ Running the App
+
+From the project root:
+
+```bash
 python main.py
 ```
 
----
-
-## 🏗️ Building the App (Linux)
-
-Use PyInstaller to create a portable binary:
-
-```bash
-pyinstaller --onefile --windowed \
-  --icon=assets/wpi_logo.ico \
-  --add-data=data/terms.json:data \
-  main.py
-```
-
-Output: `dist/main`
+1. Load a PDF
+2. Select a category and question
+3. Click "Run Search"
+4. Review matching pages with highlighted keywords
 
 ---
 
-## 🚀 Automated Windows Builds via GitHub Actions
+## 🧠 JSON Term Structure
 
-Create a release tag (`v1.0.0`) and GitHub will:
-- Build a Windows `.exe`
-- Upload it to the release automatically
+Each question has grouped terms. A page matches if **at least one word from each group** appears on it.
 
-```bash
-git tag v1.0.0
-git push origin v1.0.0
+Example:
+
+```json
+{
+  "Equity": {
+    "How does the state identify disadvantaged communities?": [
+      ["underserved", "disadvantaged", "DAC", "marginalized"],
+      ["define", "identify", "locate"],
+      ["engagement", "collaboration", "mapping tool"]
+    ]
+  }
+}
 ```
 
 ---
 
-## 🧠 Background
+## 🧑‍💻 Background
 
-This project was originally created as part of a WPI undergraduate research initiative in response to the **National Electric Vehicle Infrastructure (NEVI)** program, a federal effort to accelerate EV adoption.
+This project was originally developed as part of a WPI undergraduate research initiative in response to the **National Electric Vehicle Infrastructure (NEVI)** program.
 
-The goal was to help teams quickly analyze large amounts of state-submitted content using structured keyword-driven search.
+The research and tool development were **sponsored by Atlas Public Policy** to assist in accelerating EV adoption and infrastructure analysis.
 
 ---
 
 ## ✍️ Authors
 
-Originally developed by @nickborrello  
-Supported by WPI research advisors  
-Maintained and packaged by the research team
+Developed by Nicholas Borrello  
+Supported by WPI faculty and advisors  
+Sponsored by Atlas Public Policy
